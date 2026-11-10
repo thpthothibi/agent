@@ -1,0 +1,30 @@
+TOOL SẮP XẾP PHÒNG THI HTB – V1
+
+1. Giải nén toàn bộ ZIP, mở index.html bằng Chrome hoặc Edge. Không cần cài đặt, không cần mạng.
+2. Mở Excel, chọn trang tính. Kiểm tra dòng tiêu đề, dòng dữ liệu đầu, dòng cuối và các cột họ tên/lớp/SBD/phòng. Khi đổi dòng tiêu đề, bấm Đọc / cập nhật danh sách.
+3. Mặc định giữ nguyên thứ tự học sinh bạn đã sắp trong Excel. Có thể chọn sắp theo tên/lớp hoặc tách phòng theo một cột nhóm.
+4. Nhập sĩ số tối đa. Có thể nhập sĩ số riêng như 30,30,24; các phòng còn lại dùng mức tối đa. Nếu tách nhóm, mỗi nhóm bắt đầu phòng mới.
+5. Chọn chia mới hoặc giữ phòng Excel. Với file K11 mẫu: cột I là phòng ngày 24/10, cột N là phòng ngày 31/10; cột H là phòng Tin học. Chọn đúng cột phòng muốn giữ.
+6. SBD: giữ cũ / mới liên tục / đánh lại trong từng phòng. Tiền tố + phần số theo độ dài đã chọn; dạng theo phòng thêm mã phòng để không trùng SBD. SBD được lưu dạng text để giữ số 0.
+7. Lọc môn: tích các cột môn có dấu X. Không chọn môn = lấy tất cả. Lọc ANY = có ít nhất một môn, ALL = có đủ môn. Muốn danh sách riêng từng đợt/môn, lọc rồi xuất từng lần.
+8. Sửa đầu trang trái/phải, tiêu đề, dòng phụ, chân trái/phải, cỡ chữ. Có thể dùng {phong}, {siso}, {sbd_dau}, {sbd_cuoi}. Nội dung này được xuất thành ô Excel, có thể sửa tiếp trong Excel.
+9. Bấm Sắp phòng & đánh SBD. Có thể chỉnh SBD, tên, lớp, phòng ngay trong bảng. Bấm Sắp phòng lần nữa sẽ làm lại từ dữ liệu nguồn.
+10. Xuất Excel gồm Tổng hợp, Thống kê phòng và một sheet cho mỗi phòng. Tìm kiếm/chọn phòng xem trước không giới hạn dữ liệu xuất Excel.
+11. In / PDF: in toàn bộ phòng theo A4, mỗi phòng bắt đầu trang mới. Có thể cần nhiều trang nếu sĩ số lớn. Với Excel, kiểm tra Print Preview và cài lại vùng in/khổ giấy nếu phần mềm không giữ thiết lập in.
+12. Lưu thiết lập xuất file JSON (không chứa dữ liệu học sinh). Mở Excel trước, sau đó mở thiết lập và kiểm tra lại các cột.
+
+File mẫu đã kiểm tra: K11_danh sách(2).xlsx có 541 học sinh, dòng tiêu đề 4, dòng dữ liệu đầu 7. Chia mới 30 em/phòng cho 19 phòng (18 phòng 30 và 1 phòng 1). Giữ phòng có sẵn có thể có phòng vượt sĩ số tối đa; tool sẽ cảnh báo.
+Tool không tự suy đoán các quy tắc tổ hợp môn/ca thi phức tạp. Dùng cột nhóm trong Excel để mô tả các nhóm cần tách và chọn ở mục Tách phòng theo.
+Dữ liệu chỉ xử lý trong trình duyệt. Chưa có lưu tự động dữ liệu học sinh: xuất Excel trước khi đóng trang.
+Thư viện kèm theo: xlsx-js-style 1.2.0 (Apache-2.0).
+
+CẬP NHẬT V2 – XUẤT THEO MẪU TRƯỜNG
+- Mặc định chọn Bố cục: Theo mẫu trường. Tool tự gợi ý 6 nhóm nếu có đủ cột môn: Sử, Toán, Sinh-Địa, Lý-CN, Anh, Hóa-GDKTPL.
+- Với mỗi nhóm, chỉnh tên sheet, tên môn, chọn cột đăng ký môn và cột phòng riêng nếu cần. Không dùng cột môn = toàn bộ học sinh thi môn đó. Bỏ trống tên môn thứ hai nếu chỉ thi một môn.
+- Muốn giữ phòng như mẫu K11: nhóm Sử, Toán, Sinh-Địa chọn cột I / Ngày 24/10 / Phòng; các nhóm còn lại chọn cột N / Ngày 31/10 / Phòng. Chọn giữ SBD nếu muốn giữ nguyên.
+- Nếu muốn chia mới, để “Dùng phòng đã sắp” ở từng nhóm. Sĩ số và SBD được tạo theo phần cấu hình chung.
+- Tiêu đề đầu trang, tên trường, bảng vi phạm và 3 vị trí ký cuối trang đều sửa được. Các ô chân trái/phải cũ áp dụng cho bố cục đơn giản.
+- Bản Excel theo mẫu có 10 cột và 3 dòng tiêu đề bảng, bảng vi phạm, chữ ký, A4 và ngắt trang theo phòng. Mỗi môn/nhóm môn là một sheet; kèm Tổng hợp dữ liệu và Thống kê phòng.
+- Dấu x trong cột ký của nhóm ghép đánh dấu môn học sinh đăng ký, theo đúng quy ước file mẫu bạn cung cấp.
+- File mẫu tải lên được dùng để xây dựng bố cục; dữ liệu học sinh không được nhúng trong tool.
+- Muốn sửa trực tiếp dữ liệu trong bản xem trước, chuyển sang bố cục đơn giản; sau khi sửa có thể chuyển lại mẫu trường.
